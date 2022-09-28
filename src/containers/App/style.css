@@ -1,0 +1,7 @@
+.wrapper {
+  display: flex;
+}
+
+.add-form {
+  flex-grow: 1;
+}

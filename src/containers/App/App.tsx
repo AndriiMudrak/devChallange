@@ -2,12 +2,13 @@ import React, { useEffect, useState, useCallback } from 'react';
 import orderBy from 'lodash/orderBy';;
 import { Select, Form } from 'antd';
 
-import { Table } from './Components/Table';
-import { AddAppointment } from './Components/AddAppointment';
+import { Table } from './components/Table';
+import { AddAppointment } from './components/AddAppointment';
 import { IAppointmentComputed, IAppointment } from './interfaces';
 import { getComputedPatientList, groupList } from '../../utils/listUtils';
 import { selectOptions } from './assets';
 import rowData from '../../../data.json';
+import './style.css';
 
 const { Option } = Select;
 
@@ -41,17 +42,21 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <Select
-        value={groupBy}
-        onChange={onChangeGroupBy}
-        placeholder="Select groupBy"
-        allowClear
-        style={{width: "200px"}}
-      >
-        {options}
-      </Select>
-      <Table data={data} deletePatient={onPatientDelete} />
-      <AddAppointment onAddAppointment={onAddAppointment} />
+      <div>
+        <Select
+          value={groupBy}
+          onChange={onChangeGroupBy}
+          placeholder="Select 'Group By'"
+          allowClear
+          style={{width: "200px"}}
+        >
+          {options}
+        </Select>
+        <Table data={data} deletePatient={onPatientDelete} />
+      </div>
+      <div className="add-form">
+        <AddAppointment onAddAppointment={onAddAppointment} />
+      </div>
     </div>
   );
 }

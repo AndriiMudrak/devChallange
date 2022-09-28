@@ -1,6 +1,13 @@
-import { IAppointment, IAppointmentComputed, IDuration, DateFormat } from '../containers/App/interfaces';
 import dayjs from 'dayjs';
 import orderBy from 'lodash/orderBy';
+
+import {
+  IAppointment,
+  IAppointmentComputed,
+  IDuration,
+  DateFormat
+} from '../containers/App/interfaces';
+
 
 export const getDuration = (startDate: DateFormat, endDate: DateFormat): IDuration => {
   const duration: number = dayjs(endDate).diff(startDate) / (1000 * 60); //in minutes 

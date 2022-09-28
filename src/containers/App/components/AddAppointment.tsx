@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Select, Form, Button, Input, DatePicker } from 'antd';
 import { getComputedPatientList } from '../../../utils/listUtils';
 
@@ -9,15 +9,13 @@ interface IProps {
 }
 
 const layout = {
-  labelCol: { span: 4, offset: 1 },
+  labelCol: { span: 3, offset: 0 },
   wrapperCol: { span: 4 },
 };
 
 const tailLayout = {
-  wrapperCol: { offset: 5, span: 2 },
+  wrapperCol: { offset: 4 },
 };
-
-const { Option } = Select;
 
 const AddAppointment = ({ onAddAppointment }: IProps) => {
   const [form] = Form.useForm();
@@ -46,7 +44,7 @@ const AddAppointment = ({ onAddAppointment }: IProps) => {
       </Form.Item>
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Add appointment
         </Button>
       </Form.Item>
     </Form>
